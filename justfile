@@ -15,3 +15,7 @@ lint:
 # Formatting source codes
 format:
   deno fmt .
+
+# Running unit tests
+test:
+	deno test
