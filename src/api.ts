@@ -1,9 +1,10 @@
-/**
- * Base AUR API URL
- */
 import { Search } from "./types/search.ts";
 import fetcher from "./client.ts";
+import { Info } from "./types/info.ts";
 
+/**
+ * Base crates.io API URL
+ */
 const baseUrl = "https://crates.io/api/v1/crates";
 
 /**
@@ -26,26 +27,21 @@ export const search = async (
   per_page?: number,
 ): Promise<Search> => {
   const url = `${baseUrl}?q=${query}${per_page ? "&per_page=" + per_page : ""}`;
-  return await fetcher(url);
+  return await fetcher<Search>(url);
 };
 
-// /**
-//  * Get info about single package
-//  * @param query Packages to get info for
-//  * @exports
-//  */
-// export const info = async (query: string | string[]): Promise<AURInfo[]> => {
-//     if (typeof query === "string") {
-//         query = [query];
-//     }
-//
-//     const url = `${baseUrl}&type=info${
-//         query
-//             .map((pkg) => `&arg[]=${pkg}`)
-//             .join("")
-//     }`;
-//     const response = await fetcher(url);
-//     return response.results;
-// };
+/**
+ * Get info about single package
+ * @param query Packages to get info for
+ * @param version You may specify version of Package
+ * @exports
+ */
+export const info = async (
+  query: string,
+  version?: string,
+): Promise<Info[]> => {
+  const url = baseUrl + `/${query}${version ? `/${version}` : ""}`;
+  return await fetcher<Info[]>(url);
+};
 
-export default { search }; // info
+export default { index, search, info };

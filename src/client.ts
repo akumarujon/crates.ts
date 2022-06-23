@@ -1,6 +1,5 @@
-// deno-lint-ignore-file no-explicit-any
 /**
- * WIP
+ * @WIP
  */
 export class Configs {
   private path = "crates.json";
@@ -30,15 +29,7 @@ export class Configs {
   }
 }
 
-// export const fetcher = async (url: string) => {
-//   // const configs = new Configs();
-//   const addition: RequestInit = {};
-//
-//   const request = await fetch(url, addition);
-//   return request.json();
-// };
-
-export default async (link: string | undefined): Promise<any> => {
+export default async <T>(link: string | undefined): Promise<T> => {
   if (!link) {
     throw new Error("No link provided");
   }
