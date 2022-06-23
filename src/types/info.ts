@@ -56,11 +56,11 @@ export interface Version {
   };
   num: string;
   published_by: {
-    avatar: string
-    id: number
+    avatar: string;
+    id: number;
     login: string;
     name: string;
-    url: string
+    url: string;
   };
   readme_path: string;
   updated_at: string | Date;
