@@ -18,10 +18,10 @@ jobs:
           deno-version: vx.x.x
 
       - name: Format
-        run: deno fmt --check # --config deno.json
+        run: deno fmt --check --config deno.json
 
       - name: Lint
-        run: deno lint # --config deno.json
+        run: deno lint --config deno.json
 
 #      - name: Test
 #        run: deno test --allow-all

@@ -10,11 +10,11 @@ start:
 
 # Check for eslint errors
 lint:
-  deno lint .
+  deno lint --config deno.json
 
 # Formatting source codes
 format:
-  deno fmt .
+  deno fmt --config deno.json
 
 # Running unit tests
 test:
