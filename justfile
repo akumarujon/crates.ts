@@ -1,10 +1,17 @@
 #!/usr/bin/env just --justfile
 
-hello:
+alias s := start
+alias l := lint
+alias f := format
+
+# Start the freaking project
+start:
   echo "hello world"
 
+# Check for eslint errors
 lint:
   deno lint .
 
-fmt:
+# Formatting source codes
+format:
   deno fmt .
